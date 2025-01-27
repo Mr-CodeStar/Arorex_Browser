@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arorex Search</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="container">
+        <div class="label">Arorex Search</div>
+        <form id="search-form">
+            <input type="text" name="search-bar" class="search-bar" placeholder="Search..." id="search-bar">
+        </form>
+        <div class="footer-label">Created By: Dev Barma</div>
+    </div>
+
+    <!-- Load QWebChannel first -->
+    <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var bridge;
+            new QWebChannel(qt.webChannelTransport, function(channel) {
+                bridge = channel.objects.bridge;
+
+                document.getElementById("search-bar").addEventListener("keydown", function(event) {
+                    if (event.key === "Enter") {
+                        event.preventDefault(); // Prevent the default action
+                        const searchText = document.getElementById("search-bar").value;
+                        bridge.searchTextEntered(searchText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+To update Arorex Browser, you need to follow 3 steps:
+
+1. Check whether the version of the Arorex Browser is greater or not, by 
+going to github.com/Mr-CodeStar/
+
+2. If the version is greater, then delete all the files except the 
+history.txt file from your system, and then copy all the files present 
+in the repo.
+
+And you're ready to use your updated Arorex Browser!
+
+Thank you for your support!
